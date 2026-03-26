@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тепло Мира — помощь и советы для сирот</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f0fe 100%);
+            min-height: 100vh;
+        }
+        
+        /* Шапка */
+        .header {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .heart {
+            font-size: 4rem;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        /* Контейнер */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        /* Карточки */
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h2 {
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        /* Сетка советов */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .tip-card {
+            background: #fff5f5;
+            border-left: 5px solid #ff6b6b;
+            padding: 20px;
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+        
+        .tip-card:hover {
+            background: #fff0f0;
+            transform: translateX(5px);
+        }
+        
+        .tip-card h3 {
+            color: #ff6b6b;
+            margin-bottom: 10px;
+        }
+        
+        /* Форма вопросов */
+        .question-form {
+            background: #f9f9ff;
+            padding: 30px;
+            border-radius: 20px;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #ff6b6b;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        button:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Контакты */
+        .contacts {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            color: #333;
+        }
+        
+        .contact-item {
+            padding: 15px;
+            margin: 10px 0;
+            background: rgba(255,255,255,0.8);
+            border-radius: 15px;
+        }
+        
+        .contact-item h3 {
+            color: #ff6b6b;
+        }
+        
+        /* Истории */
+        .story {
+            background: #fff8e7;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        
+        /* Футер */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+        }
+        
+        /* Телефон доверия */
+        .hotline {
+            background: #ff6b6b;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 50px;
+            margin: 20px 0;
+        }
+        
+        .hotline a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .card h2 {
+                font-size: 1.5rem;
+            }
+            
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Анимация появления */
+        .fade-in {
+            animation: fadeIn 0.8s ease;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="heart">❤️</div>
+        <h1>Тепло Мира</h1>
+        <p>Помощь, поддержка и советы для детей-сирот и тех, кто хочет им помочь</p>
+    </div>
+    
+    <div class="container">
+        <!-- Телефон доверия -->
+        <div class="hotline fade-in">
+            <h3>📞 Телефон доверия 24/7</h3>
+            <a href="tel:88002000122">8-800-2000-122</a>
+            <p>Анонимно, бесплатно, круглосуточно</p>
+        </div>
+        
+        <!-- Советы для сирот -->
+        <div class="card fade-in">
+            <h2>🌱 Советы для детей-сирот</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h3>📚 Ты не один</h3>
+                    <p>Помни: у тебя есть люди, которые готовы помочь. Телефон доверия работает 24/7. Звони, если грустно или страшно.</p>
+                </div>
+                <div class="tip-card">
+                    <h3>🎓 Образование</h3>
+                    <p>Сироты имеют льготы при поступлении в вузы и колледжи. Узнай в местном отделе опеки о возможностях.</p>
+                </div>
+                <div class="tip-card">
+                    <h3>🏠 Жильё</h3>
+                    <p>После 18 лет государство обязано предоставить жильё. Не бойся отстаивать свои права.</p>
+                </div>
+                <div class="tip-card">
+                    <h3>❤️ Друзья</h3>
+                    <p>Найди сообщество по интересам. В интернете есть много добрых людей, готовых поддержать.</p>
+                </div>
+                <div class="tip-card">
+                    <h3>📝 Важно знать</h3>
+                    <p>Сохраняй все документы. Если потерял — обращайся в органы опеки, они помогут восстановить.</p>
+                </div>
+                <div class="tip-card">
+                    <h3>🌟 Мечтай</h3>
+                    <p>У тебя есть право на мечту. Многие успешные люди выросли в детских домах. Ты сможешь всё!</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Советы для помогающих -->
+        <div class="card fade-in">
+            <h2>🤝 Как помочь сиротам</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h3>📦 Волонтёрство</h3>
+                    <p>Свяжись с местным детским домом. Им всегда нужны помощники: ремонт, прогулки, праздники.</p>
+                </div>
+                <div class="tip-card">
+                    <h3>🎁 Подарки</h3>
+                    <p>Новогодние акции, дни рождения — отличный повод порадовать детей. Спроси в учреждении, что нужно.</p>
+                </div>
+                <div class="tip-card">
+                    <h3>👨‍🏫 Наставничество</h3>
+                    <p>Стань наставником. Регулярное общение с взрослым другом меняет жизнь сироты.</p>
+                </div>
+                <div class="tip-card">
+                    <h3>💰 Помощь</h3>
+                    <p>Можно перевести деньги в проверенные фонды: "Волонтёры в помощь детям-сиротам", "Арифметика добра".</p>
+                </div>
+                <div class="tip-card">
+                    <h3>📢 Информирование</h3>
+                    <p>Рассказывай о проблеме сиротства в соцсетях. Чем больше людей знают — тем больше помощи.</p>
+                </div>
+                <div class="tip-card">
+                    <h3>🏠 Усыновление/опека</h3>
+                    <p>Если готов — подари семью. Это самое ценное, что можно сделать.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Вдохновляющие истории -->
+        <div class="card fade-in">
+            <h2>✨ Истории успеха</h2>
+            <div class="story">
+                <h3>💫 Анна, 24 года</h3>
+                <p>"Я выросла в детском доме. После школы поступила в университет на льготной основе. Сейчас я психолог и помогаю детям из детских домов. Никогда не сдавайтесь!"</p>
+            </div>
+            <div class="story">
+                <h3>⭐ Дмитрий, 32 года</h3>
+                <p>"Из детского дома я вышел в 18 лет. Работал, учился ночами. Сейчас у меня свой бизнес. Я усыновил двоих детей. Это возможно, поверьте!"</p>
+            </div>
+            <div class="story">
+                <h3>🌟 Елена, 19 лет</h3>
+                <p>"Меня удочерили в 12 лет. Это изменило мою жизнь. Сейчас я помогаю другим детям найти семью через волонтёрство."</p>
+            </div>
+        </div>
+        
+        <!-- Анонимные вопросы -->
+        <div class="card fade-in">
+            <h2>💌 Анонимный вопрос</h2>
+            <p>Ты можешь задать вопрос, и волонтёры ответят тебе (имя не показывается)</p>
+            <div class="question-form">
+                <input type="text" id="questionTitle" placeholder="Тема вопроса">
+                <textarea id="questionText" rows="4" placeholder="Напиши свой вопрос..."></textarea>
+                <button onclick="sendQuestion()">Отправить вопрос</button>
+                <div id="questionStatus" style="margin-top: 15px; color: #ff6b6b;"></div>
+            </div>
+            
+            <h3 style="margin-top: 30px;">💬 Частые вопросы</h3>
+            <div class="tip-card" style="margin-top: 15px;">
+                <h3>❓ Как получить жильё после 18 лет?</h3>
+                <p>Обратись в орган опеки по месту жительства. Тебе обязаны предоставить жильё по договору найма. Если не дают — обращайся в прокуратуру.</p>
+            </div>
+            <div class="tip-card">
+                <h3>❓ Куда идти учиться?</h3>
+                <p>В колледжи и вузы сироты поступают вне конкурса. Выбирай то, что тебе нравится. Есть стипендия и помощь от государства.</p>
+            </div>
+            <div class="tip-card">
+                <h3>❓ Как стать волонтёром?</h3>
+                <p>Напиши в ближайший детский дом или ищи волонтёрские организации в своём городе. Они всегда рады новым людям.</p>
+            </div>
+        </div>
+        
+        <!-- Ресурсы -->
+        <div class="card contacts fade-in">
+            <h2>📚 Полезные ресурсы</h2>
+            <div class="contact-item">
+                <h3>📞 Телефон доверия</h3>
+                <p>8-800-2000-122 — бесплатно, круглосуточно, анонимно</p>
+            </div>
+            <div class="contact-item">
+                <h3>🌐 Сайты помощи</h3>
+                <p>• changeonelife.ru — помощь сиротам<br>
+                • deti.org.ru — фонд "Дети наши"<br>
+                • arifmetika-dobra.ru — помощь в образовании</p>
+            </div>
+            <div class="contact-item">
+                <h3>📖 Книги и фильмы</h3>
+                <p>• "Не бойся быть счастливым" (книга)<br>
+                • "Республика ШКИД" (фильм)<br>
+                • "Чучело" (фильм о подростках)</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>❤️ Тепло Мира — сайт поддержки для детей-сирот и тех, кто хочет помочь</p>
+        <p>Если тебе нужна помощь — позвони по телефону доверия: 8-800-2000-122</p>
+        <p style="margin-top: 20px;">Вместе мы можем сделать мир добрее 🌍</p>
+    </div>
+
+    <script>
+        // Отправка анонимного вопроса
+        function sendQuestion() {
+            const title = document.getElementById('questionTitle').value;
+            const text = document.getElementById('questionText').value;
+            const status = document.getElementById('questionStatus');
+            
+            if (!title || !text) {
+                status.innerHTML = '❌ Пожалуйста, заполни тему и текст вопроса';
+                return;
+            }
+            
+            // Сохраняем вопрос в localStorage (анонимно)
+            let questions = JSON.parse(localStorage.getItem('questions') || '[]');
+            questions.push({
+                id: Date.now(),
+                title: title,
+                text: text,
+                date: new Date().toLocaleDateString(),
+                answer: null
+            });
+            localStorage.setItem('questions', JSON.stringify(questions));
+            
+            status.innerHTML = '✅ Вопрос отправлен! Волонтёры ответят скоро (на этой странице)';
+            document.getElementById('questionTitle').value = '';
+            document.getElementById('questionText').value = '';
+            
+            // Показываем, что ответы появятся
+            setTimeout(() => {
+                status.innerHTML = '✨ Ответы на вопросы появляются на этой странице. Обнови её позже!';
+            }, 3000);
+        }
+        
+        // Показываем ранее заданные вопросы и ответы
+        function showQuestions() {
+            const questions = JSON.parse(localStorage.getItem('questions') || '[]');
+            const container = document.getElementById('userQuestions');
+            if (container && questions.length > 0) {
+                container.innerHTML = '<h3>📝 Ваши вопросы</h3>' + 
+                    questions.map(q => `
+                        <div class="tip-card">
+                            <h4>❓ ${q.title}</h4>
+                            <p>${q.text}</p>
+                            ${q.answer ? `<p><strong>💬 Ответ:</strong> ${q.answer}</p>` : '<p><em>⏳ Ожидает ответа</em></p>'}
+                            <small>${q.date}</small>
+                        </div>
+                    `).join('');
+            }
+        }
+        
+        // Плавное появление
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                el.style.transition = 'all 0.6s ease';
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }, 100);
+        });
+        
+        // Если есть контейнер для вопросов, показываем
+        showQuestions();
+    </script>
+</body>
+</html>
